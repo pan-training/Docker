@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     apt-utils  \
     build-essential \
     git \
+    wget \
+    tzdata \
     libssl1.1 \
     libssl-dev \
     vim \
@@ -41,6 +43,8 @@ RUN conda install --yes \
       bqplot \
       ipyvolume \
       ipympl \
+      scikit-learn \
+      nglview \
       silx && \
     conda install -c intel mkl && \
     conda clean -afy
