@@ -26,8 +26,4 @@ RUN conda install --yes \
 
 ########################
 
-# Clean up - Remove .cache  directory
-RUN rm -r "/home/$NB_USER/.cache"
-
-USER $NB_USER
 WORKDIR $HOME
