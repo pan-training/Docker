@@ -1,8 +1,8 @@
-FROM panbasic 
+FROM movingnorthwards/panbasic 
 
-# ASE and GPAW
+#### ASE and GPAW ####
+
 USER root 
-
 # Requirements for GPAW
 RUN apt-get update && apt-get install -y \
      libxc-dev \
@@ -10,14 +10,12 @@ RUN apt-get update && apt-get install -y \
      liblapack-dev
 
 USER $NB_USER
-
 RUN pip install ase gpaw
 
+########################
 
+#### McStas and McXtrace ####
 
-
-
-# McStas and McXtrace 
 USER root
 SHELL [ "/bin/bash", "--login", "-c" ]
 
@@ -37,64 +35,34 @@ RUN apt-get update && apt-get install -y \
     openmpi-bin \
     xbase-clients \
     xdg-utils
-#    firefox \
-#    python3-pip \
 
-# Clean up - Remove .cache  directory
-RUN rm -r "/home/$NB_USER/.cache"
+#### McStas Script ####
 
-# McStas Script
 USER $NB_USER
 RUN pip install mcstasscript
 
 USER root
 COPY configuration_mccode.yaml  /opt/conda/lib/python3.8/site-packages/mcstasscript/configuration.yaml
 
+########################
 
-# Nexus
+#### Nexus ####
+
 USER root
-
 SHELL [ "/bin/bash", "--login", "-c" ]
-
 RUN apt-get update && apt-get install -y libnexus1 libnexus-dev
 
+########################
+      
+#### SCIPP ####
 
-
-
-# Sasview
-
-# USER root
-
-# Install Sasview
-# As written in pypi: https://pypi.org/project/sasmodels/
-# COPY sasview-5.0.4 /opt/pylib/sasview-5.0.4
-
-# default command will launch Jupyter
-# ENV PYTHONPATH /opt/pylib/sasview-5.0.4/src/sas:$PYTHONPATH
-
-
-# USER $NB_USER
-
-# RUN pip install \
-#     sasmodels \
-#     bumps \
-#     lxml \
-#     periodictable \
-#     jupytext
-    
-    
-    
-    
-    
-# SCIPP
 USER $NB_USER
-
 RUN conda install -c conda-forge -c scipp scipp
-   
-    
-    
- # Updates
-USER $NB_USER
+
+########################   
+       
+#### Updates ####
+
 RUN conda install --yes \
      pytest \
      pytables \
@@ -102,6 +70,10 @@ RUN conda install --yes \
      xlrd && \
      conda clean -afy
 
+########################
+
+# Clean up - Remove .cache  directory
+RUN rm -r "/home/$NB_USER/.cache"
 
 USER $NB_USER
 WORKDIR $HOME

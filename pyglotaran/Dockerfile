@@ -1,4 +1,4 @@
-FROM panbasic
+FROM movingnorthwards/panbasic
 USER $NB_USER
 
 # Install both pyglotaran and pyglotaran-extras 
