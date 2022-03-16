@@ -8,8 +8,6 @@ Contains:
 - McStas Script
 - McXtrace
 
-***Currently missing SasView***
-
 To run and test locally:    
 `docker pull movingnorthwards/dram`    
 

@@ -60,6 +60,5 @@ RUN cd SimEx && \
     pip install .
 
 
-USER $NB_UID
-
+USER $NB_USER
 WORKDIR $HOME
