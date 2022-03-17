@@ -1,6 +1,8 @@
-# Running SasView inside a Jupyter Desktop Server 
+# Running SasView in a Jupyter Desktop
 
-Docker image for [SasView](https://www.sasview.org/)
+Docker image for [SasView](https://www.sasview.org/).   
+
+Tool forked from [yuvipanda/jupyter-desktop-server](https://github.com/yuvipanda/jupyter-desktop-server).
 
 To run and test locally:    
 `docker pull movingnorthwards/sasview`    
