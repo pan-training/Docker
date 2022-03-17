@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook 
+FROM jupyter/base-notebook
 
 USER root
 
@@ -29,15 +29,13 @@ RUN chown -R $NB_UID:$NB_GID $HOME
 ADD . /opt/install
 RUN fix-permissions /opt/install
 
+# Add everything in this build directory into the image 
 USER $NB_USER
 RUN cd /opt/install && \
    conda env update -n base --file environment.yml
-
 
 RUN pip install \
     sasmodels \
     bumps \
     lxml \
     periodictable 
-
-
