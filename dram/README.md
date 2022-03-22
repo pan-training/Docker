@@ -9,11 +9,11 @@ Contains:
 - McXtrace
 
 To run and test locally:    
-`docker pull movingnorthwards/dram`    
+`docker pull stefanovdmsc/dram`
 
-***Note: This image will be moved from movingnorthwards to a pan-training dockerhub account soon***
+***Note: This image will be moved from stefanovdmsc to a pan-training dockerhub account soon***
 
-`docker run -p 8888:8888 --name dramtest movingnorthwards/dram` 
+`docker run -p 8888:8888 --name dramtest stefanovdmsc/dram`
 
 A JupyterLab will be launched in your browser. 
 

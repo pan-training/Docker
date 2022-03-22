@@ -1,4 +1,4 @@
-FROM movingnorthwards/panbasic
+FROM stefanovdmsc/panbasic
 
 USER root
 
