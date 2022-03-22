@@ -10,6 +10,7 @@ RUN apt-get -y update \
    xfce4-panel \
    xfce4-session \
    xfce4-settings \
+   wget \
    xorg \
    xubuntu-icon-theme
 
@@ -32,5 +33,10 @@ ADD ./oasys/oasys.desktop /usr/share/applications/oasys.desktop
 ADD ./oasys/oasys-icon.xpm /usr/share/pixmaps/oasys-icon.xpm
 RUN chmod +x /usr/local/bin/*.sh
 USER $NB_USER
+RUN mkdir $HOME/Oasys && \
+    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_coherence_transport.ows -O $HOME/Oasys/hercules_coherence_transport.ows && \
+    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_photon_transport.ows -O $HOME/Oasys/hercules_photon_transport.ows && \
+    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_optical_elements.ows -O $HOME/Oasys/hercules_power_transport_optical_elements.ows && \
+    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_sources.ows -O $HOME/Oasys/hercules_power_transport_sources.ows
 RUN cd /opt/install && \
    conda env update -n base --file environment.yml
