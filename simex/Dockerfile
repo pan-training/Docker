@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
 
 USER $NB_USER
 
+RUN conda config --set channel_priority false
+
 RUN conda install --yes \
       markdown \
       py3nvml \
