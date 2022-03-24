@@ -1,3 +1,8 @@
+***You can test this specific branch with movingnorthwards/scipp***
+It is still missing mantid due to python version issue and may have an issue with the version of ipykernel.
+Unlike main branch this has scippneutron and ess-streaming-data-types
+
+
 # Docker image for running SCIPP in a JupyterLab 
 
 Dockerfile for SCIPP only (with Nexus).
