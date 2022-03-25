@@ -35,7 +35,6 @@ RUN conda install --yes \
       voila \
       bqplot \
       ipyvolume \
-      ipympl \
       scikit-learn \
       nglview \
       silx && \
