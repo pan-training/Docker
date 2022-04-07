@@ -62,7 +62,8 @@ RUN apt-get -y update \
    octave \
    libopenmpi-dev \
    libnexus1 \
-   libnexus-dev
+   libnexus-dev \
+   git
    
 # install McStas, and make sure we use the python from the system for it
 RUN apt install -y ./*.deb
@@ -106,3 +107,13 @@ RUN cd /opt/install && \
    conda env update -n base --file environment.yml
 
 COPY McStasScript/configuration.yaml  /opt/conda/lib/python3.9/site-packages/mcstasscript/
+
+#### Git puller ####
+
+RUN pip install nbgitpuller
+# this used to be needed if running an old version of Jupyter Notebook
+# RUN jupyter serverextension enable nbgitpuller --sys-prefix
+
+# this is for testing whether git puller is working when running container locally
+RUN jupyter serverextension enable --py nbgitpuller
+
