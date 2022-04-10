@@ -1,6 +1,18 @@
 FROM stefanovdmsc/panbasic
 USER $NB_USER
 
+
+RUN mamba install --quiet --yes \
+    'jupyterlab-spellchecker' \
+    'jupyterlab_code_formatter' \
+    'isort' \
+    'black' \
+    'jupyterlab-drawio' \
+    'jupyterlab-autosave-on-focus-change' \
+    'jupyterlab-system-monitor' \
+    'jupyterlab-unfold' \
+    && mamba clean --all -f -y
+
 # Copy requirements file with pinned pyglotaran dependencies
 COPY ./requirements.txt requirements.txt
 
