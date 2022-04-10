@@ -3,6 +3,7 @@ USER $NB_USER
 
 
 RUN mamba install --quiet --yes \
+    -c conda-forge \
     'jupyterlab-spellchecker' \
     'jupyterlab_code_formatter' \
     'isort' \
