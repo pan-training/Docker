@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:python-3.7.6
+FROM jupyter/base-notebook
 
 
 USER root
@@ -12,7 +12,8 @@ RUN apt-get -y update \
    xfce4-settings \
    wget \
    xorg \
-   xubuntu-icon-theme
+   xubuntu-icon-theme \
+   git
 
 # Remove light-locker to prevent screen lock
 RUN wget 'https://sourceforge.net/projects/turbovnc/files/2.2.5/turbovnc_2.2.5_amd64.deb/download' -O turbovnc_2.2.5_amd64.deb && \
@@ -40,3 +41,13 @@ RUN mkdir $HOME/Oasys && \
     wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_sources.ows -O $HOME/Oasys/hercules_power_transport_sources.ows
 RUN cd /opt/install && \
    conda env update -n base --file environment.yml
+
+#### Git puller ####
+
+RUN pip install nbgitpuller
+# this used to be needed if running an old version of Jupyter Notebook
+# RUN jupyter serverextension enable nbgitpuller --sys-prefix
+
+# this is for testing whether git puller is working when running container locally
+RUN jupyter serverextension enable --py nbgitpuller
+
