@@ -2,6 +2,11 @@ FROM jupyter/base-notebook
 
 
 USER root
+#Specific to e-learning.pan-training.eu host architecture
+SHELL ["/bin/sh", "-c"]
+RUN groupadd -g 20295 -o panjhubuser
+RUN useradd -m -u 10260 -g 20295 -o -s /bin/bash panjhubuser
+CMD /bin/bash
 
 RUN apt-get -y update \
  && apt-get install -y dbus-x11 \
