@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+dependencies:
+  - jupyter-server-proxy>=1.4
+  - pip
+  - websockify
+  - pip:
+      - McStasScript
+      - wheel
+      - cython
+      - silx
+      - .
+
+

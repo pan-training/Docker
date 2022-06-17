@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Oasys
+GenericName=Oasys
+Comment=Oasys - OrAnge SYnchrotron Suite
+Exec=/usr/local/bin/oasys.sh
+Icon=/usr/share/pixmaps/oasys-icon.xpm
+Terminal=false
+Categories=Education;Science;Physics;
+MimeType=text/python
+
