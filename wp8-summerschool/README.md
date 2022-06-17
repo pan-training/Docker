@@ -14,4 +14,8 @@ Both the legacy version 2.x and the 'next-generation' 3.x (with revised grammar,
 ## Credits
 
 This tool is forked from <https://github.com/yuvipanda/jupyter-desktop-server>.
-It runs a Docker container at Binder, which includes websockify, tightvnc server, and novnc.
+
+Can be run e.g. from dockerhub via
+```
+docker run -p 8888:8888 -v $HOME/panosc-docker:/home/jovyan/panosc-docker docker.io/mccode/panosc-summerschool-0.1:1.0
+```
