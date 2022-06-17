@@ -1,5 +1,5 @@
 # PaNOSC WP8 summerschool Docker/ Binder from Jupyter Desktop Server
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pan-training/Docker/wp8-summerschool/master?urlpath=desktop)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pan-training/Docker/wp8-summerschool/main?urlpath=desktop)
 
 [McStas](https://mcstas.org/) neutron instrument- and experiment simulations
 [OASYS](https://www.aps.anl.gov/Science/Scientific-Software/OASYS) X-ray optics and beam-line simulations
