@@ -44,7 +44,7 @@ RUN wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcstas
 
 
 RUN apt-get -y update \
- && apt-get install -y dbus-x11 \
+   && apt-get install -y dbus-x11 \
    firefox \
    xfce4 \
    xfce4-panel \
@@ -54,7 +54,7 @@ RUN apt-get -y update \
    xubuntu-icon-theme \
    view3dscene \
    python3-pyqt5 \
-    xdg-utils \
+   xdg-utils \
    gedit \
    gedit-plugins \
    evince \
@@ -63,8 +63,12 @@ RUN apt-get -y update \
    libopenmpi-dev \
    libnexus1 \
    libnexus-dev \
-   ase quantum-espresso quantum-espresso-data gpaw
-   
+   ase \
+   quantum-espresso \
+   quantum-espresso-data \
+   gpaw \
+   git 
+
 # install McStas, and make sure we use the python from the system for it
 RUN apt install -y ./*.deb
 RUN rm *.deb
@@ -116,16 +120,12 @@ RUN cd /opt/install && \
 
 COPY McStasScript/configuration.yaml  /opt/conda/lib/python3.9/site-packages/mcstasscript/
 RUN mkdir $HOME/Oasys && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_coherence_transport.ows -O $HOME/Oasys/hercules_coherence_transport.ows && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_photon_transport.ows -O $HOME/Oasys/hercules_photon_transport.ows && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_optical_elements.ows -O $HOME/Oasys/hercules_power_transport_optical_elements.ows && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_sources.ows -O $HOME/Oasys/hercules_power_transport_sources.ows
-RUN python3 -m pip install --upgrade setuptools
-RUN python3 -m pip install --upgrade wheel
-RUN python3 -m pip install --upgrade cython
-RUN python3 -m pip install --upgrade numpy
-RUN python3 -m pip install --upgrade PyQt5
-RUN python3 -m pip install --upgrade matplotlib
-RUN python3 -m pip install --upgrade silx
-RUN python3 -m pip install --upgrade --no-deps --force crispy
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_coherence_transport.ows -O $HOME/Oasys/hercules_coherence_transport.ows && \
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_photon_transport.ows -O $HOME/Oasys/hercules_photon_transport.ows && \
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_optical_elements.ows -O $HOME/Oasys/hercules_power_transport_optical_elements.ows && \
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_sources.ows -O $HOME/Oasys/hercules_power_transport_sources.ows
+
+# Install the additional Jupyter plugins.
+RUN python3 -m pip install jupyterlab_h5web ipympl   
+RUN python3 -m pip install https://github.com/mretegan/crispy/tarball/main
 
