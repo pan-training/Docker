@@ -120,16 +120,9 @@ RUN cd /opt/install && \
 
 COPY McStasScript/configuration.yaml  /opt/conda/lib/python3.9/site-packages/mcstasscript/
 RUN mkdir $HOME/Oasys && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_coherence_transport.ows -O $HOME/Oasys/hercules_coherence_transport.ows && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_photon_transport.ows -O $HOME/Oasys/hercules_photon_transport.ows && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_optical_elements.ows -O $HOME/Oasys/hercules_power_transport_optical_elements.ows && \
-    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_sources.ows -O $HOME/Oasys/hercules_power_transport_sources.ows
-RUN python3 -m pip install --upgrade setuptools
-RUN python3 -m pip install --upgrade wheel
-RUN python3 -m pip install --upgrade cython
-RUN python3 -m pip install --upgrade numpy
-RUN python3 -m pip install --upgrade PyQt5
-RUN python3 -m pip install --upgrade matplotlib
-RUN python3 -m pip install --upgrade silx
-RUN python3 -m pip install --upgrade --no-deps --force crispy
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_coherence_transport.ows -O $HOME/Oasys/hercules_coherence_transport.ows && \
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_photon_transport.ows -O $HOME/Oasys/hercules_photon_transport.ows && \
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_optical_elements.ows -O $HOME/Oasys/hercules_power_transport_optical_elements.ows && \
+   wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_sources.ows -O $HOME/Oasys/hercules_power_transport_sources.ows
+RUN python3 -m pip install https://github.com/mretegan/crispy/tarball/main
 
