@@ -126,6 +126,6 @@ RUN mkdir $HOME/Oasys && \
    wget https://raw.githubusercontent.com/oasys-esrf-kit/oasys_hercules/main/2022/hercules_power_transport_sources.ows -O $HOME/Oasys/hercules_power_transport_sources.ows
 
 # Install the additional Jupyter plugins.
-RUN python3 -m pip install jupyterlab_h5web ipympl   
+RUN python3 -m pip install jupyterlab_h5web ipympl pymca
 RUN python3 -m pip install https://github.com/mretegan/crispy/tarball/main
-
+RUN python3 -m pip install daxs==2022.1.rc1
