@@ -4,11 +4,27 @@ dependencies:
   - jupyter-server-proxy>=1.4
   - pip
   - websockify
+  - PyQt
+  - Qscintilla2
+  - pyqtgraph
+  - pyaml
+  - ply
+  - numpy
+  - scipy
+  - pillow
+  - tornado
+  - jinja2
+  - mpld3
+  - matplotlib
   - pip:
       - McStasScript
       - wheel
       - cython
       - silx
+      - jupyterlab_h5web
+      - ipympl
+      - pymca
+      - daxs==2022.1.rc1
       - .
 
 
