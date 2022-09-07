@@ -60,10 +60,6 @@ RUN apt-get -y update \
    libopenmpi-dev \
    libnexus1 \
    libnexus-dev \
-   ase \
-   quantum-espresso \
-   quantum-espresso-data \
-   gpaw \
    git && \
    wget 'https://sourceforge.net/projects/turbovnc/files/2.2.5/turbovnc_2.2.5_amd64.deb/download' -O turbovnc_2.2.5_amd64.deb  && \
    apt-get install -y -q ./*.deb && \
