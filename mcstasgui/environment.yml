@@ -6,4 +6,5 @@ dependencies:
   - websockify
   - pip:
       - McStasScript
+      - guide_bot
       - .
