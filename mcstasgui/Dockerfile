@@ -70,11 +70,6 @@ RUN cd /opt/install && \
 
 COPY McStasScript/configuration.yaml  /opt/conda/lib/python3.11/site-packages/mcstasscript/
 
-RUN which pip
-
-RUN find /opt/conda -name jupyter-serverextension
-
-
 #### Git puller ####
 
 RUN pip install nbgitpuller
