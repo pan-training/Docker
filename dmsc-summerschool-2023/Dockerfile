@@ -1,10 +1,12 @@
-FROM jupyter/base-notebook:4d70cf8da953
+FROM docker.io/jupyter/base-notebook:4d70cf8da953
 
 
 USER root
 
-# get McCode debian packages: release release 3.3
-RUN  wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcstas-3.3-deb64.deb \
+# update/upgrade and get McCode debian packages: release release 3.3
+RUN apt-get -y -q update \
+ && apt-get -y -q upgrade \
+&&   wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcstas-3.3-deb64.deb \
 &&   wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcstas-comps-3.3-deb64.deb \
 &&   wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcstas-manuals-3.3-deb64.deb \
 &&   wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcstas-tools-matlab-mcplot-3.3-deb64.deb \
@@ -50,12 +52,14 @@ RUN  wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcsta
 RUN apt install -y ./*.deb && rm *.deb && ln -s /opt/conda /usr/share/mcstas/3.3/miniconda3
 
 
-# Remove light-locker to prevent screen lock
-RUN wget 'https://sourceforge.net/projects/turbovnc/files/2.2.5/turbovnc_2.2.5_amd64.deb/download' -O turbovnc_2.2.5_amd64.deb && \
-   apt-get install -y -q ./turbovnc_2.2.5_amd64.deb && \
-   apt-get remove -y -q light-locker xfce4-screensaver && \
-   rm ./turbovnc_2.2.5_amd64.deb && \
-   ln -s /opt/TurboVNC/bin/* /usr/local/bin/
+# Install TurboVNC (https://github.com/TurboVNC/turbovnc)
+ARG TURBOVNC_VERSION=2.2.6
+RUN wget -q "https://sourceforge.net/projects/turbovnc/files/${TURBOVNC_VERSION}/turbovnc_${TURBOVNC_VERSION}_amd64.deb/download" -O turbovnc.deb \
+ && apt-get install -y -q ./turbovnc.deb \
+    # remove light-locker to prevent screen lock
+ && apt-get remove -y -q light-locker xfce4-screensaver \
+ && rm ./turbovnc.deb \
+ && ln -s /opt/TurboVNC/bin/* /usr/local/bin/
 
 # apt-get may result in root-owned directories/files under $HOME
 RUN chown -R $NB_UID:$NB_GID $HOME
