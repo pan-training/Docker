@@ -22,5 +22,6 @@ podman run -p8888:8888 docker.io/mccode/dmsc-summerschool:1.3
 
 ## Credits
 
-This tool is forked from <https://github.com/yuvipanda/jupyter-desktop-server>.
-It runs a Docker container at Binder, which includes websockify, tightvnc server, and novnc.
+This tool is based on code from <https://github.com/jupyterhub/jupyter-remote-desktop-proxy>
+It defines a Docker container which includes websockify, tightvnc
+server, and novnc plus software specific to the above-mentioned course.
