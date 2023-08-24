@@ -19,7 +19,6 @@ dependencies:
   - ipywidgets
   - ipykernel
   - jupyter-book
-  - jupyterquiz
   - matplotlib
   - mpltoolbox
   - numpy
@@ -47,6 +46,7 @@ dependencies:
   - nexpy
   - scitacean
   - pip:
+      - jupyterquiz
       - easysciencecore
       - McStasScript
       - guide_bot
