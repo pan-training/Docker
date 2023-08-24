@@ -19,12 +19,13 @@ dependencies:
   - ipywidgets
   - ipykernel
   - jupyter-book
+  - jupyterquiz
   - matplotlib
+  - mpltoolbox
   - numpy
   - pip
   - plopp==23.08.0
   - pooch
-  - python==3.10.*
   - python-graphviz
   - pythreejs
   - scipp==23.07.0

@@ -5,19 +5,19 @@ Container with software packages for use in the course https://indico.esss.lu.se
 ([JupyterLab](https://jupyter.org), [scipp](https://scipp.github.io),
 [NeXus format](https://www.nexusformat.org), [McStas](https://mcstas.org) and more)
 
-**Currrent revision: 1.5** (built 20230821)
+**Currrent revision: 1.6** (built 20230824)
 
 This Docker recipe can be used to build the supporting container, e.g.
 
 Build via e.g.
 ```
-podman build . --format=docker -t docker.io/mccode/dmsc-summerschool:1.5
+podman build . --format=docker -t docker.io/mccode/dmsc-summerschool:1.6
 ```
 Will be (manually) uploaded to DockerHub by Peter on changes.
 
 Run via e.g.
 ```
-podman run -p8888:8888 docker.io/mccode/dmsc-summerschool:1.5
+podman run -p8888:8888 docker.io/mccode/dmsc-summerschool:1.6
 ```
 
 ## Credits
