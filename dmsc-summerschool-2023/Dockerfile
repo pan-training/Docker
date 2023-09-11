@@ -46,7 +46,10 @@ RUN apt-get -y -q update \
    libnexus1 \
    libnexus-dev \
    git \
-   firefox
+   firefox \
+   emacs \
+   vim \
+   nano
 
 # install McStas, and make sure we use the python from the system for it, and let conda-based Python modules be used from with McStas
 RUN apt install -y ./*.deb && rm *.deb && ln -s /opt/conda /usr/share/mcstas/3.3/miniconda3
