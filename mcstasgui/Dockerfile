@@ -46,7 +46,7 @@ RUN  wget http://packages.mccode.org/debian/dists/stable/main/binary-amd64/mcsta
    firefox
 
 # install McStas, and make sure we use the python from the system for it, and let conda-based Python modules be used from with McStas
-RUN apt install -y ./*.deb && rm *.deb && ln -s /opt/conda /usr/share/mcstas/3.4/miniconda3
+RUN apt install -y ./*.deb && rm *.deb && ln -s /opt/conda /usr/share/mcstas/3.4/miniconda3 && /usr/share/mcstas/3.4/bin/mcdoc -i
 
 
 # Remove light-locker to prevent screen lock
