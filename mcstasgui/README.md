@@ -1,3 +1,7 @@
+# This recipe should be considered OBSOLETE! Please rather use:
+https://github.com/McStasMcXtrace/jupyter-mcstas-desktop
+
+
 # McStas Binder from Jupyter Desktop Server
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/McStasMcXtrace/mcstas-binder/master?urlpath=desktop)
 
