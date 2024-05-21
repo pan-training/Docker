@@ -30,18 +30,16 @@ RUN conda install --yes \
       jupyterlab_widgets \
       matplotlib-base \
       nodejs \
-      python-confluent-kafka \
       pythreejs \ 
       voila \
       bqplot \
       ipyvolume \
       scikit-learn \
-      nglview \
-      silx && \
+      nglview && \
     conda install -c intel mkl && \
     conda clean -afy
 
-RUN conda update -n base conda --yes
+RUN conda update -n base conda --yes && python -m ensurepip --upgrade && pip3 install --upgrade pip
 RUN jupyter serverextension enable voila --sys-prefix
 
 
@@ -49,7 +47,7 @@ RUN jupyter serverextension enable voila --sys-prefix
 
 #### Git puller ####
  
-RUN pip install nbgitpuller 
+RUN pip3 install nbgitpuller confluent-kafka silx jupyter-contrib-nbextensions
 # this used to be needed if running an old version of Jupyter Notebook 
 # RUN jupyter serverextension enable nbgitpuller --sys-prefix
 
@@ -59,9 +57,6 @@ RUN jupyter serverextension enable --py nbgitpuller
 
 
 
-#### Nbextensions ####
-
-RUN conda install -c conda-forge jupyter_contrib_nbextensions 
 # Enable the Nbextensions. Annoyingly you have to specify one nbextension/package at a time 
 RUN jupyter nbextension enable autosavetime/main && \
     jupyter nbextension enable execute_time/ExecuteTime && \
