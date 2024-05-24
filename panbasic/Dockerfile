@@ -39,7 +39,7 @@ RUN conda install --yes \
     conda install -c intel mkl && \
     conda clean -afy
 
-RUN conda update -n base conda --yes && python -m ensurepip --upgrade && pip3 install --upgrade pip
+RUN conda update -n base conda --yes && conda clean -afy && python -m ensurepip --upgrade && pip3 install --upgrade pip
 RUN jupyter serverextension enable voila --sys-prefix
 
 
@@ -47,7 +47,7 @@ RUN jupyter serverextension enable voila --sys-prefix
 
 #### Git puller ####
  
-RUN pip3 install nbgitpuller confluent-kafka silx jupyter-contrib-nbextensions
+RUN pip3 install nbgitpuller confluent-kafka silx jupyter-contrib-nbextensions && pip3 cache purge
 # this used to be needed if running an old version of Jupyter Notebook 
 # RUN jupyter serverextension enable nbgitpuller --sys-prefix
 
